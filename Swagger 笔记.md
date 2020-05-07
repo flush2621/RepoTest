@@ -59,7 +59,7 @@ public class SwaggerConfig {
 
 环境配置文件：
 
-![image-20200508011852070](C:\Users\Liupeng\AppData\Roaming\Typora\typora-user-images\image-20200508011852070.png)
+![image-20200508011852070](C:\Users\Liupeng\Desktop\project\RepoTest\images\image-20200508011852070.png)
 
 
 
