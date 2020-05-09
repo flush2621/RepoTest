@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/RepoTest.iml" filepath="$PROJECT_DIR$/.idea/RepoTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/fileupload/fileupload.iml" filepath="$PROJECT_DIR$/fileupload/fileupload.iml" />
       <module fileurl="file://$PROJECT_DIR$/mailsender/mailsender.iml" filepath="$PROJECT_DIR$/mailsender/mailsender.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myswagger/myswagger.iml" filepath="$PROJECT_DIR$/myswagger/myswagger.iml" />
     </modules>
   </component>
 </project>

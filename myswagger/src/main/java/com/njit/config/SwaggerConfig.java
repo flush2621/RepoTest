@@ -21,13 +21,31 @@ import java.util.ArrayList;
 public class SwaggerConfig {
 
     @Bean
+    public Docket docketX(Environment environment){
+        Profiles profiles = Profiles.of("dev");
+        boolean b = environment.acceptsProfiles(profiles);
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .groupName("1、hdData")
+                .enable(b)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.njit.controller"))
+                .paths(PathSelectors.ant("/storeInfo/**"))
+                .build();
+    }
+
+    @Bean
     public Docket docketA(Environment environment){
         Profiles profiles = Profiles.of("dev");
         boolean flag = environment.acceptsProfiles(profiles);
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
-                .groupName("A")
-                .enable(flag);
+                .groupName("2、A")
+                .enable(flag)
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.njit.controller"))
+                .paths(PathSelectors.ant("/hello/**"))
+                .build();
     }
 
     @Bean
@@ -36,7 +54,7 @@ public class SwaggerConfig {
         boolean flag = environment.acceptsProfiles(profiles);
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
-                .groupName("B")
+                .groupName("3、B")
                 .enable(flag) //是否启用swagger
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.njit.controller"))
