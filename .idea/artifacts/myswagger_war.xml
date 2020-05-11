@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="myswagger:war">
+    <output-path>$PROJECT_DIR$/myswagger/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>myswagger</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="myswagger-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="myswagger:war exploded" />
+    </root>
+  </artifact>
+</component>

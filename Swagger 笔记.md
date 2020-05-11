@@ -145,3 +145,44 @@ public User getUser(){
 2.接口文档实时更新
 
 3.在线测试可以返回准确错误信息
+
+## 7.补充
+
+将springboot打war包
+
+1.在pom.xml里面添加
+
+```xml
+<!--改成war-->
+<packaging>war</packaging>
+```
+
+  排除tomcat
+
+```xml
+<!--表示生成war包时候不将tomcat包进去-->
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-tomcat</artifactId>
+  <scope>provided</scope>
+</dependency>
+```
+
+2.改动主程序
+
+```java
+@SpringBootApplication
+public class MyswaggerApplication extends SpringBootServletInitializer {
+//添加继承SpringBootServletInitializer
+    @Override
+    //重写configure方法
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application){
+        return application.sources(MyswaggerApplication.class);
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(MyswaggerApplication.class, args);
+    }
+
+}
+```

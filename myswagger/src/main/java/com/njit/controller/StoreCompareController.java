@@ -1,8 +1,6 @@
 package com.njit.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.njit.controller.agent.annotation.ApiJsonObject;
-import com.njit.controller.agent.annotation.ApiJsonProperty;
 import com.njit.entity.StoreCompare;
 import com.njit.entity.StoreNoModel;
 import com.njit.mapper.StoreCompareMapper;
@@ -11,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/storeInfo")
