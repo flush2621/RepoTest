@@ -1,7 +1,10 @@
 package com.njit.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.njit.controller.agent.annotation.ApiJsonObject;
+import com.njit.controller.agent.annotation.ApiJsonProperty;
 import com.njit.entity.StoreCompare;
+import com.njit.entity.StoreNoModel;
 import com.njit.mapper.StoreCompareMapper;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +21,14 @@ public class StoreCompareController {
   StoreCompareMapper storeCompareMapper;
 
   @GetMapping("/")
-  @ApiOperation(value = "获取门店信息")
+  @ApiOperation(value = "获取所有门店信息")
   public List<StoreCompare> hello(){
     List<StoreCompare> storeCompares = storeCompareMapper.selectList(null);
     return storeCompares;
   }
 
   @GetMapping("/selectArea")
-  @ApiOperation(value = "选择地区门店")
+  @ApiOperation(value = "设置地区和状态搜索门店")
   @ApiImplicitParams(
       {
           @ApiImplicitParam(name = "area_no", value = "地区", dataType = "Integer", defaultValue = "51",
@@ -44,16 +47,17 @@ public class StoreCompareController {
   @PostMapping("/selectStore")
   @ApiOperation(value = "根据老店号搜索门店")
 //  @ApiImplicitParam(
-//      name = "params", paramType = "body"
-////      examples = @Example({
-////      @ExampleProperty(value = "{'oldStoreNo': '10'}", mediaType = "application/json")
-////      })
+//      name = "params", paramType = "body",
+//      value = "{\"oldStoreNo\": 10}"
+//      examples = @Example({
+//      @ExampleProperty(value = "{'oldStoreNo': '10'}", mediaType = "application/json")
+//      })
 //  )
-  public StoreCompare selectStore(@RequestBody Map<String, Integer> params){
-    Integer oldStoreNo = params.get("oldStoreNo");
+  public StoreCompare selectStore(@RequestBody StoreNoModel storeNoModel){
     StoreCompare store = storeCompareMapper.selectOne(new QueryWrapper<StoreCompare>()
-        .eq("old_store_no", oldStoreNo));
+        .eq("old_store_no", storeNoModel.getOldStoreNo()));
     return store;
   }
+
 
 }

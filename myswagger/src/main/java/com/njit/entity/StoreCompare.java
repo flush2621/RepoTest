@@ -22,20 +22,19 @@ import java.io.Serializable;
 @NoArgsConstructor
 @ApiModel(description = "门店信息表")
 public class StoreCompare extends Model<StoreCompare> {
-    
+    @ApiModelProperty(value = "老店号")
     private Integer oldStoreNo;
-    
+    @ApiModelProperty(value = "新店号")
     private Integer newStoreNo;
-    
+    @ApiModelProperty(value = "门店描述")
     private String name;
-    
+    @ApiModelProperty(value = "地区号")
     private Integer areaNo;
-
     @ApiModelProperty(value = "开店日期")
     private Date startDate;
-    
+    @ApiModelProperty(value = "EBS店号")
     private Integer ebsStoreNo;
-    
+    @ApiModelProperty(value = "门店状态")
     private Integer status;
 
     @Override
